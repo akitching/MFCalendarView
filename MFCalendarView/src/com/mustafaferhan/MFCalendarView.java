@@ -138,6 +138,12 @@ public class MFCalendarView extends LinearLayout{
 		addView(view);
 	}
 
+	public void setAdapter(CalendarAdapter adapter) {
+		this.calendaradapter = adapter;
+		gridview.setAdapter(calendaradapter);
+		handler.post(calendarUpdater);
+	}
+
 	protected void setNextMonth() {
 		if (month.get(GregorianCalendar.MONTH) == 
 				month.getActualMaximum(GregorianCalendar.MONTH)) {
