@@ -37,6 +37,20 @@ mf.setOnCalendarViewListener(new onMFCalendarViewListener() {
 	});
 ```
 
+#####Using custom adapter:
+You can override the adapter to handle different/multiple event types using a custom calendar\_item.xml
+
+Ensure your new adapter inherits from CalendarAdapter, then instantiate and pass it to the view as below:
+
+```java
+mf = (MFCalendarView) findViewById(R.id.mFCalendarView);
+GregorianCalendar month = (GregorianCalendar) GregorianCalendar.getInstance();
+
+month.setTimeInMillis(Util.dateToLong(mf.getInitialDate()));
+CustomCalendarAdapter adapter = new CustomCalendarAdapter(getActivity(), month);
+mf.setAdapter(adapter);
+```
+
 #####You can set events:
 
 ```java
